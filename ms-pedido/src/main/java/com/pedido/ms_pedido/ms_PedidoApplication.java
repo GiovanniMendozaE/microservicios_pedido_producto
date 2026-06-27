@@ -1,4 +1,4 @@
-package com.pedido.Pedido;
+package com.pedido.ms_pedido;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
