@@ -16,6 +16,11 @@ public class ProductoController {
         this.productoService = productoService;
     }
 
+    @GetMapping
+    public Iterable<ProductoResponse> obtenerTodos() {
+        return productoService.getProductos();
+    }
+
     @GetMapping("/{id}")
     public ProductoResponse obtenerPorId(@PathVariable("id") int id) {
         return productoService.getProductoById(id);

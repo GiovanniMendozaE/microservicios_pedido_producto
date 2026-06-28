@@ -1,19 +1,28 @@
 package com.pedido.ms_pedido.controller;
 
 import com.pedido.ms_pedido.model.dto.PedidoRequest;
-import com.pedido.ms_pedido.service.Impl.PedidoServiceImpl;
+import com.pedido.ms_pedido.model.dto.PedidoResponse;
+import com.pedido.ms_pedido.service.PedidoService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("v1/pedidos")
 public class PedidoController {
-    private final PedidoServiceImpl pedidoService;
+    private final PedidoService pedidoService;
 
-    public PedidoController(PedidoServiceImpl pedidoService) {
+    public PedidoController(PedidoService pedidoService) {
         this.pedidoService = pedidoService;
+    }
+
+    @GetMapping
+    public List<PedidoResponse> obtenerTodos() {
+        return pedidoService.getPedidos();
     }
 
     @PostMapping("/register")
